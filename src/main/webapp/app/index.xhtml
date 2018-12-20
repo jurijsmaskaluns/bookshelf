@@ -1,0 +1,46 @@
+<!--
+  ~ Copyright (c) 2018 Dimitrijs Fedotovs
+  ~ This code is licensed under MIT license
+  ~ (see LICENSE.txt for details)
+  -->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/templates/main.xhtml">
+    <ui:define name="content">
+        <!--<h:outputLabel value="User's space"/>-->
+
+        <h:form>
+        <h:inputText value="#{bookBean.term}"/>
+            <h:commandButton value="search" action="#{bookBean.doSearch}">
+                <f:ajax execute="@form" render="@form"/>
+            </h:commandButton>
+            <h:dataTable value="#{bookBean.books}" var="book">
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    #{book.id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Title</f:facet>
+                    #{book.title}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Author</f:facet>
+                    #{book.author}
+                </h:column>
+            </h:dataTable>
+        <!--<ui:repeat value="#{bookBean.books}" var="book">-->
+        <!--<p>#{book.id} - #{book.title} - #{book.author} - #{book.year}</p>-->
+        <!--</ui:repeat>-->
+
+
+        </h:form>
+
+    </ui:define>
+</ui:composition>
+
+</html>
