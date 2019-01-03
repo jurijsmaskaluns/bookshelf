@@ -1,5 +1,6 @@
-
-<!DOCTYPE html>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
@@ -7,26 +8,21 @@
 
 <ui:composition template="/templates/main.xhtml">
     <ui:define name="content">
-        <!--<h:outputLabel value="User's space"/>-->
+        <!--<h:outputLabel value="User's list"/>-->
 
-        <h:form>
-            <h:inputText value="#{bookBean.term}"/>
-            <h:commandButton value="search" action="#{bookBean.doSearch}">
-                <f:ajax execute="@form" render="@form"/>
-            </h:commandButton>
-            <h:outputLabel value="Not found" rendered="#{empty bookBean.books}"/>
-            <h:dataTable value="#{bookBean.books}" var="book" rendered="#{not empty bookBean.books}">
+
+            <h:dataTable value="#{userBean.users}" var="user">
                 <h:column>
                     <f:facet name="header">Id</f:facet>
-                    #{book.id}
+                    #{user.id}
                 </h:column>
                 <h:column>
-                    <f:facet name="header">Title</f:facet>
-                    #{book.title}
+                    <f:facet name="header">User Name</f:facet>
+                    #{user.loginName}
                 </h:column>
                 <h:column>
-                    <f:facet name="header">Author</f:facet>
-                    #{book.author}
+                    <f:facet name="header">User Role</f:facet>
+                    #{user.roleName}
                 </h:column>
             </h:dataTable>
             <!--<ui:repeat value="#{bookBean.books}" var="book">-->
@@ -34,7 +30,7 @@
             <!--</ui:repeat>-->
 
 
-        </h:form>
+
 
     </ui:define>
 </ui:composition>
