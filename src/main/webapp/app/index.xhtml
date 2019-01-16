@@ -13,6 +13,7 @@
             <h:commandButton value="search" action="#{bookBean.doSearch}">
                 <f:ajax execute="@form" render="@form"/>
             </h:commandButton>
+
             <h:outputLabel value="Not found" rendered="#{empty bookBean.books}"/>
             <h:dataTable value="#{bookBean.books}" var="book" rendered="#{not empty bookBean.books}">
                 <h:column>

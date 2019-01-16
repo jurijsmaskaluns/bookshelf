@@ -18,7 +18,6 @@ import java.util.List;
 public class BookReservationBean {
     @PersistenceContext
     private EntityManager em;
-
     @Inject
     private CurrentUser currentUser;
 
@@ -28,7 +27,6 @@ public class BookReservationBean {
         BookEntity book = em.find(BookEntity.class, id); //nahodim knigu po id
 
         ReservationEntity reservation = new ReservationEntity(); //novaja rezervacija, obi4nij objekt
-
         reservation.setBook(book);
         reservation.setUser(currentUser.getUser()); // poljzovatelj kotorij zaloginilsja
         reservation.setStatus(ReservationStatus.ACTIVE);

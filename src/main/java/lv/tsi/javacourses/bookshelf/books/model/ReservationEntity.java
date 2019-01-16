@@ -18,8 +18,10 @@ public class ReservationEntity implements Serializable {
 
     @ManyToOne
     private UserEntity user;
+
     @Column
     private ReservationStatus status;
+
     @Column
     private LocalDateTime created;
 
